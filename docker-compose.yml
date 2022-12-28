@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  cranemagic-middleware:
+  ksdp-middleware:
     image: yijun9124/ksdp-service-middleware
     depends_on:
       - ksdp-db
@@ -16,7 +16,7 @@ services:
       - MIDDLEWARE_URL
     restart: always
   cranemagic-web:
-    image: yijun9124/ksdp-service-webapi
+    image: yijun9124/cranemagic-service-webapi
     depends_on:
       - ksdp-db
       - mqtt-broker
@@ -31,7 +31,7 @@ services:
       - MIDDLEWARE_URL
     restart: always
   cranemagic-mqtt:
-    image: yijun9124/ksdp-service-mqtt
+    image: yijun9124/cranemagic-service-mqtt
     depends_on:
       - ksdp-db
       - mqtt-broker
@@ -43,8 +43,8 @@ services:
       - CONTROLLER_URL
       - MIDDLEWARE_URL
     restart: always
-  ksdp-frontend-nginx:
-    image: yijun9124/ksdp-frontend-wms-nginx
+  cranemagic-frontend-nginx:
+    image: yijun9124/cranemagic-frontend-wms-nginx
     depends_on:
       - ksdp-db
       - mqtt-broker
@@ -52,7 +52,7 @@ services:
       - "80:80"
     restart: always
   mqtt-broker:
-    image: yijun9124/ksdp-mosquitto
+    image: yijun9124/cranemagic-mosquitto
     ports:
       - "1883:1883"
       - "1884:1884"
@@ -66,3 +66,5 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD
     restart: always
+    volumes:
+      - ./data:/var/lib/mysql
