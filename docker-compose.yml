@@ -44,8 +44,8 @@ services:
       - CONTROLLER_URL
       - MIDDLEWARE_URL
     restart: always
-  cranemagic-mqtt:
-    image: yijun9124/cranemagic-service-mqtt
+  cranemagic-mqtt-cms:
+    image: yijun9124/cranemagic-service-mqtt-cms
     depends_on:
       - ksdp-db
       - mqtt-broker
