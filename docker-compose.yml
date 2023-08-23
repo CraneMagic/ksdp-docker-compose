@@ -15,7 +15,11 @@ services:
       - CONTROLLER_URL
       - MIDDLEWARE_URL
       - CRANE_ID_MATERIAL_INPUTS
+      - CRANE_MATERIAL_INPUTS_PRIORITY
+      - CRANE_MATERIAL_INPUTS_RESET_POSITION
       - CRANE_ID_MATERIAL_UPLOAD
+      - CRANE_MATERIAL_UPLOAD_PRIORITY
+      - CRANE_MATERIAL_UPLOAD_RESET_POSITION
     restart: always
   cranemagic-web:
     image: yijun9124/cranemagic-service-webapi
@@ -31,6 +35,12 @@ services:
       - MQTT_HOST
       - CONTROLLER_URL
       - MIDDLEWARE_URL
+      - CRANE_ID_MATERIAL_INPUTS
+      - CRANE_MATERIAL_INPUTS_PRIORITY
+      - CRANE_MATERIAL_INPUTS_RESET_POSITION
+      - CRANE_ID_MATERIAL_UPLOAD
+      - CRANE_MATERIAL_UPLOAD_PRIORITY
+      - CRANE_MATERIAL_UPLOAD_RESET_POSITION
     restart: always
   cranemagic-controller-mock:
     image: yijun9124/cranemagic-controller-mock
@@ -57,7 +67,11 @@ services:
       - CONTROLLER_URL
       - MIDDLEWARE_URL
       - CRANE_ID_MATERIAL_INPUTS
+      - CRANE_MATERIAL_INPUTS_PRIORITY
+      - CRANE_MATERIAL_INPUTS_RESET_POSITION
       - CRANE_ID_MATERIAL_UPLOAD
+      - CRANE_MATERIAL_UPLOAD_PRIORITY
+      - CRANE_MATERIAL_UPLOAD_RESET_POSITION
     restart: always
   cranemagic-frontend-nginx:
     image: yijun9124/cranemagic-frontend-wms-nginx
